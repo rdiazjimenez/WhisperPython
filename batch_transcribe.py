@@ -51,6 +51,10 @@ def procesar_archivos(carpeta, idioma, txt_path):
     total = sum(1 for f in os.listdir(carpeta) if es_archivo_valido(f))
     procesados = 0
     errores = 0
+
+    # crear sub carpeta para transcripciones
+    os.makedirs(carpeta + '/Trscrip/', exist_ok=True)
+    carpetaTranscrip = carpeta + '/Trscrip/'
     
     print(txtOutputProcesoTransAnali)
     print(f"📂 Carpeta seleccionada: {carpeta}")
@@ -64,8 +68,7 @@ def procesar_archivos(carpeta, idioma, txt_path):
         ruta_completa = os.path.join(carpeta, archivo)
 
         nombreArchivo = os.path.splitext(archivo)[0]
-        ruta_transcripcion = os.path.join(carpeta, nombreArchivo + ".txt")
-        
+        ruta_transcripcion = os.path.join(carpetaTranscrip, nombreArchivo + ".txt")
 
         temp_audio_path = None
         
