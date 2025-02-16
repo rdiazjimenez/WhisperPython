@@ -77,7 +77,6 @@ def procesar_archivos(carpeta, idioma, txt_path):
 
             if os.path.isfile(ruta_transcripcion) :
                 print(f"❕ Transcripción ya existe para {archivo}")
-                procesados += 1
 
                 with open(ruta_transcripcion, 'r', encoding='utf-8') as file:
                     texto = file.read()
